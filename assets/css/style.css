@@ -23,3 +23,7 @@
   background: #343a40;
   color: #fff;
 }
+form.login.bootstrap-form-with-validation{
+  max-width:400px;
+  margin:0 auto;
+}

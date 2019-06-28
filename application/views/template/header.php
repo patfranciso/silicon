@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <title>User Admin</title>
 <link rel="icon" href="<?php echo base_url()?>assets/img/civue.png">
- <link rel="stylesheet" href="<?php echo base_url()?>assets/css/bootstrap.min.css">
- <link rel="stylesheet" href="<?php echo base_url()?>assets/css/style.css">
+<link rel="stylesheet" href="<?php echo base_url()?>assets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="<?php echo base_url()?>assets/css/style.css">
+<link rel="stylesheet" href="<?php echo base_url()?>assets/css/login.css">
 
 <script src="<?php echo base_url()?>assets/js/vue.min.js"></script>
 <script src="<?php echo base_url()?>assets/js/axios.min.js"></script>
@@ -22,7 +23,7 @@
         </div>
         <div class="collapse navbar-collapse" id="navcol-1">
             <ul class="nav navbar-nav">
-                <li role="presentation" class="active"><a href="#">Groups </a></li>
+                <li role="presentation"><a href="#">Groups </a></li>
                 <li role="presentation"><a href="#">Users </a></li>
             </ul>
         </div>
