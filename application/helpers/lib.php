@@ -103,6 +103,37 @@ function right($value){
   return new Right($value);
 }
 
+abstract class Option extends Monad{
+  
+}
+class None extends Option{
+  public function bind(callable $function) {
+    return $this;
+  }
+  public function toString(){
+    return 'None';
+  }
+}
+
+class Some extends Option{}
+
+function none($value=null){
+  return new None($value);
+}
+
+function some($value){
+  return new Some($value);
+}
+
+function option($value){
+  if(is_string($value))
+    $value = trim($value);
+  if($value == '' || !isset($value) || $value == null  )
+    return none($value);
+  else
+    return new Some($value);
+}
+  
 function printErr($x){
   if (@$_SERVER['SERVER_NAME']) 
    echo ('<pre style="color:red">'.$x.'</pre>') ; 
