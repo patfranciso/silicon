@@ -1,0 +1,24 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Mocha Tests</title>
+  <link href="mocha.css" rel="stylesheet" />
+</head>
+<body>
+  <div id="mocha"><div id="er" style="color:red"></div></div>
+
+  <script src="../../../assets/js/app/utils.js"></script>
+  <script src="../../js/axios.min.js"></script>
+  <script src="../../js/app/auth.js"></script>
+  <script src="chai.js"></script>
+  <script src="mocha.js"></script>
+
+  <script>mocha.setup('bdd')</script>
+  <script src="test.array.js"></script>
+  <script src="test.login.js"></script>
+  <script>
+    mocha.checkLeaks();
+    mocha.run();
+  </script>
+</body>
+</html>
