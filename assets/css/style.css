@@ -1,29 +1,37 @@
-.top-middle{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 101;
+.right{
+  float:right;
 }
 
-/*validation text size*/
-
-.has-text-danger{
-    font-size: 0.75rem
+span.left{
+  float:left;
+  margin-right:10px;
 }
 
-/*pagination*/
+i{
+  margin-right:5px;
+}
 
-.pager .pagination>li>a,
-.pager .pagination>li>span {
-    color: #343a40;
+span.title{
+  font-weight:600;
+  min-height:50px;
+  overflow:auto;
 }
-.pagination>li.page-item.active>a {
-    border: 1px solid #343a40;
-  background: #343a40;
-  color: #fff;
+
+span.group_name{
+  padding:0 15px;
+  text-align:center;
 }
+
 form.login.bootstrap-form-with-validation{
   max-width:400px;
   margin:0 auto;
 }
+
+.er{
+  color:red;
+}
+
+div.dropdown{
+  display:inline;
+}
+
