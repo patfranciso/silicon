@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="CodeIgniter Application Test Suite" tests="7" assertions="13" errors="0" failures="0" skipped="0" time="0.000000">
-    <testsuite name="Base_test" file="C:\wamp64\www\silicon\application\tests\controllers\Base_test.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.000000">
-      <testcase name="test_base" class="Base_test" classname="Base_test" file="C:\wamp64\www\silicon\application\tests\controllers\Base_test.php" line="19" assertions="1" time="0.000000"/>
+  <testsuite name="CodeIgniter Application Test Suite" tests="7" assertions="13" errors="0" failures="0" skipped="0" time="0.007001">
+    <testsuite name="Base_test" file="C:\wamp64\www\silicon\application\tests\controllers\Base_test.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.001000">
+      <testcase name="test_base" class="Base_test" classname="Base_test" file="C:\wamp64\www\silicon\application\tests\controllers\Base_test.php" line="19" assertions="1" time="0.001000"/>
     </testsuite>
-    <testsuite name="Check_active_user_is_admin_test" file="C:\wamp64\www\silicon\application\tests\controllers\Check_active_user_is_admin_test.php" tests="3" assertions="3" errors="0" failures="0" skipped="0" time="0.000000">
-      <testcase name="test_valid_admin" class="Check_active_user_is_admin_test" classname="Check_active_user_is_admin_test" file="C:\wamp64\www\silicon\application\tests\controllers\Check_active_user_is_admin_test.php" line="5" assertions="1" time="0.000000"/>
-      <testcase name="test_invalid_admin" class="Check_active_user_is_admin_test" classname="Check_active_user_is_admin_test" file="C:\wamp64\www\silicon\application\tests\controllers\Check_active_user_is_admin_test.php" line="14" assertions="1" time="0.000000"/>
-      <testcase name="test_base" class="Check_active_user_is_admin_test" classname="Check_active_user_is_admin_test" file="C:\wamp64\www\silicon\application\tests\controllers\Check_active_user_is_admin_test.php" line="19" assertions="1" time="0.000000"/>
+    <testsuite name="Check_active_user_is_admin_test" file="C:\wamp64\www\silicon\application\tests\controllers\Check_active_user_is_admin_test.php" tests="3" assertions="3" errors="0" failures="0" skipped="0" time="0.003001">
+      <testcase name="test_valid_admin" class="Check_active_user_is_admin_test" classname="Check_active_user_is_admin_test" file="C:\wamp64\www\silicon\application\tests\controllers\Check_active_user_is_admin_test.php" line="5" assertions="1" time="0.001001"/>
+      <testcase name="test_invalid_admin" class="Check_active_user_is_admin_test" classname="Check_active_user_is_admin_test" file="C:\wamp64\www\silicon\application\tests\controllers\Check_active_user_is_admin_test.php" line="14" assertions="1" time="0.001000"/>
+      <testcase name="test_base" class="Check_active_user_is_admin_test" classname="Check_active_user_is_admin_test" file="C:\wamp64\www\silicon\application\tests\controllers\Check_active_user_is_admin_test.php" line="19" assertions="1" time="0.001000"/>
     </testsuite>
-    <testsuite name="Validate_name_test" file="C:\wamp64\www\silicon\application\tests\controllers\Validate_name_test.php" tests="3" assertions="9" errors="0" failures="0" skipped="0" time="0.000000">
-      <testcase name="test_valid_input" class="Validate_name_test" classname="Validate_name_test" file="C:\wamp64\www\silicon\application\tests\controllers\Validate_name_test.php" line="5" assertions="4" time="0.000000"/>
-      <testcase name="test_invalid_input" class="Validate_name_test" classname="Validate_name_test" file="C:\wamp64\www\silicon\application\tests\controllers\Validate_name_test.php" line="15" assertions="4" time="0.000000"/>
-      <testcase name="test_base" class="Validate_name_test" classname="Validate_name_test" file="C:\wamp64\www\silicon\application\tests\controllers\Validate_name_test.php" line="19" assertions="1" time="0.000000"/>
+    <testsuite name="Validate_name_test" file="C:\wamp64\www\silicon\application\tests\controllers\Validate_name_test.php" tests="3" assertions="9" errors="0" failures="0" skipped="0" time="0.003000">
+      <testcase name="test_valid_input" class="Validate_name_test" classname="Validate_name_test" file="C:\wamp64\www\silicon\application\tests\controllers\Validate_name_test.php" line="5" assertions="4" time="0.001000"/>
+      <testcase name="test_invalid_input" class="Validate_name_test" classname="Validate_name_test" file="C:\wamp64\www\silicon\application\tests\controllers\Validate_name_test.php" line="15" assertions="4" time="0.001000"/>
+      <testcase name="test_base" class="Validate_name_test" classname="Validate_name_test" file="C:\wamp64\www\silicon\application\tests\controllers\Validate_name_test.php" line="19" assertions="1" time="0.001000"/>
     </testsuite>
   </testsuite>
 </testsuites>
