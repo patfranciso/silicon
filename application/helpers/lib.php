@@ -96,11 +96,11 @@ class Left extends Either{
 class Right extends Either{}
 
 function left($value){
-  return new Left($value);
+  return Left::unit($value);
 }
 
 function right($value){
-  return new Right($value);
+  return Right::unit($value);
 }
 
 abstract class Option extends Monad{
@@ -168,7 +168,9 @@ function trace($m){
     'some'=> function ($x){ return printSuccess(mToString($x['payload']));},
     'left'=> function ($x){ return printErr(mToString($x['payload']));},
     'right'=> function ($x){ return printSuccess(mToString($x['payload']));},
-    '_'=> function ($x){ return printInfo(!empty($x['payload'])? mToString($x['payload']): mToString($x));}
+    '_'=> function ($x){ 
+      return printInfo(!empty($x['payload'])? mToString($x['payload']): mToString($x));
+    }
   ];
   $api[$dcase]($x);
 };
