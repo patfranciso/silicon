@@ -14,11 +14,14 @@ class Welcome extends CI_Controller {
 
 		// Get Authenticated User
 		$this->data['active_user'] = $this->session->userdata('active_user');
-		$this->data['active_user_group'] = $this->group_m->get_group($this->data['active_user']->group_id);
 
 	}
 	public function index()
 	{
-		$this->load->view('welcome_message');
-	}
+    $data['title'] = 'Welcome';
+    $data['subview'] = 'welcome_message';
+    $data['active_user'] = $this->session->userdata('active_user');
+    $this->load->view('template/layout', $data);      
+  }
+  
 }

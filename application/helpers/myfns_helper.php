@@ -1,29 +1,78 @@
 <?php
-require_once "lib.php";
-function controllerName(){
+define('DS',DIRECTORY_SEPARATOR);
+require_once 'lib.php';
+
+function is_admin($session = null){
+  $session = $session ? $session : $_SESSION;
+  $user = (array)@$session['active_user'];
+  return @$user['kind'] === 'admin' ? true : false;
+}
+
+function have_active_user($session = null){
+  $session = $session ? $session : $_SESSION;
+  return !empty(@$session['active_user']);
+}
+
+function active_user($session = null){
+  $session = $session ? $session : $_SESSION;
+  return @$session['active_user'];
+}
+
+class PostRequest{
+  public $session;
+  public $post;
+  public function __construct(array $session, array $post){
+    $this->session = $session;
+    $this->post = $post;
+  }
+}
+
+function make_post_request(array $session = null , array $post = null):PostRequest{
+  $session = $session ? $session : $_SESSION;
+  $post = $post ? $post : $_POST;
+  return new PostRequest($session, $post);
+}
+
+class GetRequest{
+  public $session;
+  public $get;
+  public function __construct(array $session, array $get)
+  {
+    $this->session = $session;
+    $this->get = $get;
+  }
+}
+
+function make_get_request($session=null, $get=null) {
+    $session = $session ? $session : $_SESSION;
+    $get = $get ? $get : $_GET;
+  return new GetRequest($session, $get);
+}
+
+// bindable
+function check_active_user_is_admin($request = null){
+  return is_admin($request->session) ? right($request) : left(__FUNCTION__) ;
+}
+
+function api_response(int $code, $response){
   $ci =& get_instance();
-  return $ci->router->fetch_class();
+  $ci->output
+    ->set_status_header($code)
+    ->set_content_type('application/json', 'utf-8')
+    ->set_output(
+      json_encode($response, 
+        JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
 }
 
- function makeCommand($validate, $handle, $log, $present){
-  return function (\Monad $request) use ($validate, $handle, $log, $present){
-    return function ($inputState) use ($validate, $handle, $log, $present, $request){
-      return $request->bind($validate, $inputState)
-        ->bind($handle, $inputState)
-        ->bind($log, $inputState)
-        ->match ([
-          'left'=>function(){printErr("Left output");},
-          'right'=>function(){printSuccess("Right output");},
-          '_'=>function(){printInfo ( "default");},
-        ]);
-    };
-  };
+$usecases = scandir(BASEPATH.'..'.DS.'use_cases'.DS);
+
+foreach($usecases as $file){
+  if(file_ext($file))
+  require_once BASEPATH.'..'.DS.'use_cases'.DS.$file;
 }
 
-
-// function createUser(CreateUserRequest $userRequest){
-//     - validate()
-//     - add record to database
-//     - logEventData
-//     - return id | record
-// }
+function file_ext($file)
+{
+  $path_parts = pathinfo($file);
+  return $path_parts['extension'];
+}
