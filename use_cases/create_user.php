@@ -26,7 +26,6 @@ function create_user($request)
     $id = $ci->db->insert_id();
     $duser = get_user_by_id($id);
 
-    // var_export(right($duser));
     $result = right($duser);
   } else {
     $result = left(__FUNCTION__);

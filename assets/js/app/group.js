@@ -6,7 +6,7 @@ Vue.component('group-item',{
     <span class="right">
       <a class="btn btn-default btn-sm" role="button" href="#" @click="editGroup()">
         <i class="glyphicon glyphicon-pencil"></i>Edit</a>
-      <a class="btn btn-default btn-sm" role="button" href="#" @click="deleteGroup()">
+      <a class="btn btn-default btn-sm" role="button" href="#" :disabled="!is_ungrouped()" @click="deleteGroup()">
         <i class="glyphicon glyphicon-trash"></i>Delete</a>
         <a class="btn btn-default" role="button" :href="'group/'+group.id">
         <i class="glyphicon glyphicon-list"></i>User List</a>
@@ -35,6 +35,10 @@ Vue.component('group-item',{
       .catch(() => {
         this.$notify('Delete Group cancelled.')
       })
+    },
+    is_ungrouped(){
+      return Number(this.group.id) !== 1 ? 'disabled': ''
+      // return Number(this.group.id) === 1 
     },
   }
 })
