@@ -3,16 +3,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Auth extends CI_Controller {
 
-	/**
-     * Login Form
-     *
-     * @access 	public
-     * @param 	
-     * @return 	view
-     */
+	public function __construct()
+  {
+    parent::__construct();
+    $this->load->library('form_validation');
+  }
 	
 	public function login()
 	{
+		// Redirect If Authenticated
+    $this->session->userdata('active_user') !== null ? redirect('/') : '';
+    
 		$data['title'] = 'Login';
 		$data['subview'] = 'auth/login';
 		$this->load->view('template/layout', $data);
@@ -30,8 +31,8 @@ class Auth extends CI_Controller {
 	{
 		$rules = [
 			[
-				'field' => 'email',
-				'label' => 'Email',
+				'field' => 'name',
+				'label' => 'Name',
 				'rules' => 'required'
 			],
 			[
@@ -44,7 +45,7 @@ class Auth extends CI_Controller {
 		$this->form_validation->set_rules($rules);
 		if ($this->form_validation->run()) {
 			$this->load->model('login_model');
-			$attempt = $this->login_model->attempt($this->input->post());
+			$attempt = $this->login_model->attempt($this->input->post(null, false));
 			if ($attempt === null) {
 				header("Content-type:application/json");
 				echo json_encode(['password' => 'Wrong email or password']);
@@ -54,7 +55,7 @@ class Auth extends CI_Controller {
 				echo json_encode(['status' => 'success']);
 			}
 		} else {
-			header("Content-type:application/json");
+      header("Content-type:application/json");      
 			echo json_encode($this->form_validation->get_all_errors());
 		}
 	}
@@ -71,19 +72,4 @@ class Auth extends CI_Controller {
 		$this->session->unset_userdata('active_user');
 		redirect('auth/login');
   }
-  
-    /**
-    * Register
-    *
-    * @access  public
-    * @param
-    * @return  view
-    */
-
-    public function register_form()
-    {
-            $this->data['title'] = 'Register';
-            $this->data['subview'] = 'register/main';
-            $this->load->view('components/layout', $this->data);
-    }
 }
