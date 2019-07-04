@@ -9,6 +9,13 @@ class Api extends CI_Controller {
     $create_user = get_create_user_usecase();
     $create_user->execute($request);    
   }
+  
+  public function create_group_post(){
+    $request = make_post_request();
+
+    $create_group = get_create_group_usecase();
+    $create_group->execute($request);    
+  }
 
   public function showAllUsers()
   {

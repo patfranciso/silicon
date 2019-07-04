@@ -103,7 +103,6 @@ Vue.component('add-new-user',{
     addUser: function(){
       axios.post(origin()+'/v1/api/create_user_post', formData({name: this.newName}), {headers})
         .then(res=>{
-          console.log(res)
           if(res.status === 201){
             EventBus.$emit('successAddUser', res.data.user_info)
             this.$notify({
@@ -171,7 +170,7 @@ const v = new Vue({
   el:'#app',
   data:{
     userlist:[],
-    grouplist:[ ]
+    grouplist:[]
   },
   created(){
     EventBus.$on('successAddUser',(newuser)=>{
@@ -191,6 +190,6 @@ const v = new Vue({
       axios.get(origin()+"/v1/api/showAllGroups").then(function(response){
         v.grouplist = response.data.groups
       })
-  },
+    },
   },
 })
