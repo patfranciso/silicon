@@ -6,7 +6,7 @@
       <meta name="token" content="<?php echo base64_encode(json_encode(active_user())); ?>">
     <?php } ?>
     <title><?php echo $title; ?> - User Admin</title>
-<link rel="icon" href="<?php echo base_url()?>assets/img/civue.png">
+<link rel="icon" href="<?php echo base_url()?>assets/img/icon.png">
 <link rel="stylesheet" href="<?php echo base_url()?>assets/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="<?php echo base_url()?>assets/css/style.css">
 
