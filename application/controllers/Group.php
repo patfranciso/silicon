@@ -23,11 +23,4 @@ class Group extends CI_Controller {
     $this->load->view('template/layout', $data);      
   }
   
-  // group/(\d+)
-  public function users($group_id){
-    $data['title'] = 'Users List';
-    $data['subview'] = 'group_user_list';
-    $data['group_id'] = $group_id;
-    $this->load->view('template/layout', $data); 
-  }
 }

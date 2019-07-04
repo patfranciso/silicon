@@ -59,10 +59,29 @@ Vue.component('user-item',{
     },
     userGroupChanged(){
       const that = this
-      this.$notify({
-        type: 'success',
-        content: 'User Group Changed completed successfully to:'+that.user.group_id
-      })
+
+      axios.post(origin()+'/v1/api/assign_user_to_group', formData(
+        {user_id: this.user.id, group_id: this.user.group_id}), {headers})
+        .then(res=>{
+          if(res.status === 200){
+            
+            this.$notify({
+              type: 'success',
+              content: 'User Group Changed completed successfully to:'+that.user.group_id
+            })
+          }
+          else if(res.status === 202){
+            EventBus.$emit('failedAddUser', res.data.user_info)
+            this.$notify({
+              type: 'danger',
+              title: 'Failed',
+              content: res.data.message,
+              duration: 4000
+            })
+          }
+        })
+        .catch(e=>console.error(e))
+
     }
   }
 })

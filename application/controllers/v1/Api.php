@@ -37,6 +37,14 @@ class Api extends CI_Controller {
     echo json_encode($result);
   }
   
+  public function assign_user_to_group()
+  {
+    $request = make_post_request();
+
+    $assign_user_to_group = get_assign_user_to_group_usecase();
+    $assign_user_to_group->execute($request);  
+  }
+
   public function delete_user_post(){
     $request = make_post_request();
 
