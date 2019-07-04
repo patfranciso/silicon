@@ -7,8 +7,7 @@ class Api extends CI_Controller {
     $request = make_post_request();
 
     $create_user = get_create_user_usecase();
-    $create_user->execute($request);
-    
+    $create_user->execute($request);    
   }
 
   public function showAllUsers()
@@ -20,6 +19,7 @@ class Api extends CI_Controller {
     }
     echo json_encode($result);
   }
+
   public function showAllGroups()
   {
     $result = false;
@@ -28,5 +28,12 @@ class Api extends CI_Controller {
         $result['groups']  = $query->result();
     }
     echo json_encode($result);
+  }
+
+  public function delete_user_post(){
+    $request = make_post_request();
+
+    $delete_user = get_delete_user_usecase();
+    $delete_user->execute($request);  
   }
 }

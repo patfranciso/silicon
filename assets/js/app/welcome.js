@@ -28,10 +28,30 @@ Vue.component('user-item',{
     deleteUser(){
       this.$confirm({
         title: 'Confirm',
-        content: 'This user will be permanently deleted. Continue?'
+        content:'This user '+this.user.id+':'+this.user.name+' will be deleted. Continue?'
       })
-      .then(() => {        
-        this.$notify('Delete User successful.')
+      .then(() => {
+        axios.post(origin()+'/v1/api/delete_user_post', formData({id: this.user.id}), {headers})
+          .then( res=>{
+            if(res.status === 200){
+              v.userlist.splice(v.userlist.indexOf(this.user),1)
+              this.$notify({
+                type: 'success',
+                title: 'Success',
+                content: res.data.message,
+                duration: 4000
+              })
+            }
+            else{
+              this.$notify({
+                type: 'danger',
+                title: 'Failed',
+                content: res.data.message,
+                duration: 4000
+              })
+            }
+          })
+          .catch(e=>console.log(e))
       })
       .catch(() => {
         this.$notify('Delete User cancelled.')
