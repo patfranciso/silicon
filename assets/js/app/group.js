@@ -26,11 +26,27 @@ Vue.component('group-item',{
         title: 'Confirm',
         content: 'This group will be permanently deleted. Continue?'
       })
-      .then(() => {        
-        this.$notify({
-          type:'success',
-          title: 'Success',
-          content:'Delete Group successful.'})
+      .then(() => {
+        axios.post(origin()+'/v1/api/delete_group_post', formData({group_id: this.group.id}), {headers})
+        .then(res=>{
+          if(res.status === 200){            
+            v.grouplist.splice(v.grouplist.indexOf(this.group),1)
+            this.$notify({
+              type:'success',
+              title: 'Success',
+              content:'Delete Group successful.'
+            })
+          }
+          else if(res.status === 202){
+                        this.$notify({
+              type: 'danger',
+              title: 'Failed',
+              content: res.data.message,
+              duration: 4000
+            })
+          }
+        })
+        .catch(e=>console.error(e))
       })
       .catch(() => {
         this.$notify('Delete Group cancelled.')
@@ -38,7 +54,6 @@ Vue.component('group-item',{
     },
     is_ungrouped(){
       return Number(this.group.id) !== 1 ? 'disabled': ''
-      // return Number(this.group.id) === 1 
     },
   }
 })

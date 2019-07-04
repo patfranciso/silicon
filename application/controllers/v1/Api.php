@@ -36,11 +36,18 @@ class Api extends CI_Controller {
     }
     echo json_encode($result);
   }
-
+  
   public function delete_user_post(){
     $request = make_post_request();
 
     $delete_user = get_delete_user_usecase();
     $delete_user->execute($request);  
+  }
+
+  public function delete_group_post(){
+    $request = make_post_request();
+
+    $delete_group = get_delete_group_usecase();
+    $delete_group->execute($request);  
   }
 }
