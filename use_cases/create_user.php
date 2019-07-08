@@ -101,7 +101,7 @@ class Create_user_usecase
   }
 }
 
-function get_create_user_usecase(){
+function make_create_user_usecase(){
   $create_user = new Create_user_usecase;
   $create_user->setCheckActiveUserIsAdmin('check_active_user_is_admin')
     ->setValidateNewUser('validate_new_user')

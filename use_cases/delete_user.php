@@ -50,7 +50,7 @@ class Delete_user_usecase
   }
 }
 
-function get_delete_user_usecase()
+function make_delete_user_usecase()
 {  
   $delete_user = new Delete_user_usecase;
   $delete_user->setCheckActiveUserIsAdmin('check_active_user_is_admin')

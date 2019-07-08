@@ -4,7 +4,7 @@ class Create_group_test extends Base_test
 {
   public function test_success()
   {
-    $create_group = get_create_group_usecase();
+    $create_group = make_create_group_usecase();
     $test_presenter = $this->mock_presenter();
     $test_create_group = $this->mock_create_group();
 
@@ -21,7 +21,7 @@ class Create_group_test extends Base_test
 
   public function test_failed_validation()
   {
-    $create_group = get_create_group_usecase();
+    $create_group = make_create_group_usecase();
     $test_presenter = $this->mock_presenter();
     $test_create_group = $this->mock_create_group();
 
@@ -38,7 +38,7 @@ class Create_group_test extends Base_test
 
   public function test_failed_database_op()
   {
-    $create_group = get_create_group_usecase();
+    $create_group = make_create_group_usecase();
     $test_presenter = $this->mock_presenter();
     $test_create_group = $this->mock_failed_create_group();
 

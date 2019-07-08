@@ -66,7 +66,7 @@ class Delete_group_usecase
   }
 }
 
-function get_delete_group_usecase()
+function make_delete_group_usecase()
 {  
   $delete_group = new Delete_group_usecase;
   $delete_group->setCheckActiveUserIsAdmin('check_active_user_is_admin')

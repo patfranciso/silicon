@@ -6,14 +6,14 @@ class Api extends CI_Controller {
   public function create_user_post(){
     $request = make_post_request();
 
-    $create_user = get_create_user_usecase();
+    $create_user = make_create_user_usecase();
     $create_user->execute($request);    
   }
   
   public function create_group_post(){
     $request = make_post_request();
 
-    $create_group = get_create_group_usecase();
+    $create_group = make_create_group_usecase();
     $create_group->execute($request);    
   }
 
@@ -41,21 +41,21 @@ class Api extends CI_Controller {
   {
     $request = make_post_request();
 
-    $assign_user_to_group = get_assign_user_to_group_usecase();
+    $assign_user_to_group = make_assign_user_to_group_usecase();
     $assign_user_to_group->execute($request);  
   }
 
   public function delete_user_post(){
     $request = make_post_request();
 
-    $delete_user = get_delete_user_usecase();
+    $delete_user = make_delete_user_usecase();
     $delete_user->execute($request);  
   }
 
   public function delete_group_post(){
     $request = make_post_request();
 
-    $delete_group = get_delete_group_usecase();
+    $delete_group = make_delete_group_usecase();
     $delete_group->execute($request);  
   }
 }

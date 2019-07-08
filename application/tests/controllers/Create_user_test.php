@@ -4,7 +4,7 @@ class Create_user_test extends Base_test
 {
   public function test_success()
   {
-    $create_user = get_create_user_usecase();
+    $create_user = make_create_user_usecase();
     $test_presenter = $this->mock_presenter();
     $test_create_user = $this->mock_create_user();
 
@@ -21,7 +21,7 @@ class Create_user_test extends Base_test
 
   public function test_failed_validation()
   {
-    $create_user = get_create_user_usecase();
+    $create_user = make_create_user_usecase();
     $test_presenter = $this->mock_presenter();
     $test_create_user = $this->mock_create_user();
 
@@ -38,7 +38,7 @@ class Create_user_test extends Base_test
 
   public function test_failed_database_op()
   {
-    $create_user = get_create_user_usecase();
+    $create_user = make_create_user_usecase();
     $test_presenter = $this->mock_presenter();
     $test_create_user = $this->mock_failed_create_user();
 

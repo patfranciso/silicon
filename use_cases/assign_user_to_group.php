@@ -65,7 +65,7 @@ function save_entry_database($request){
   $ci->db->update('users', ['group_id'=>$group_id]);
 }
 
-function get_assign_user_to_group_usecase(){
+function make_assign_user_to_group_usecase(){
   $create_group = new Assign_user_to_group_usecase;
   $create_group->setCheckActiveUserIsAdmin('check_active_user_is_admin')
     ->setCheckUserIsNotAlreadyInGroup('check_user_is_not_already_in_group')

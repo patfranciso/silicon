@@ -4,7 +4,7 @@ class Delete_group_test extends Base_test
 {
   public function test_success()
   {
-    $delete_group = get_delete_group_usecase();
+    $delete_group = make_delete_group_usecase();
     $test_presenter = $this->mock_presenter();
     $test_remove_group_record = $this->mock_remove_group_record();
     $test_check_group_has_no_members = $this->mock_check_group_has_no_members();
@@ -23,7 +23,7 @@ class Delete_group_test extends Base_test
 
   public function test_failed_check_group_has_no_members()
   {
-    $delete_group = get_delete_group_usecase();
+    $delete_group = make_delete_group_usecase();
     $test_presenter = $this->mock_presenter();
     $test_remove_group_record = $this->mock_failed_remove_group_record();
     $test_check_group_has_no_members = $this->mock_failed_check_group_has_no_members();
@@ -42,7 +42,7 @@ class Delete_group_test extends Base_test
 
   public function test_failed_database_op()
   {
-    $delete_group = get_delete_group_usecase();
+    $delete_group = make_delete_group_usecase();
     $test_presenter = $this->mock_presenter();
     $test_remove_group_record = $this->mock_failed_remove_group_record();
     $test_check_group_has_no_members = $this->mock_check_group_has_no_members();

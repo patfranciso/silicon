@@ -102,7 +102,7 @@ class Create_group_usecase
 }
 
 
-function get_create_group_usecase(){
+function make_create_group_usecase(){
   $create_group = new Create_group_usecase;
   $create_group->setCheckActiveUserIsAdmin('check_active_user_is_admin')
     ->setValidateNewGroup('validate_new_group')

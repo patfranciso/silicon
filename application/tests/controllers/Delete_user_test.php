@@ -4,7 +4,7 @@ class Delete_user_test extends Base_test
 {
   public function test_success()
   {
-    $delete_user = get_delete_user_usecase();
+    $delete_user = make_delete_user_usecase();
     $test_presenter = $this->mock_presenter();
     $test_delete_user = $this->mock_delete_user();
 
@@ -21,7 +21,7 @@ class Delete_user_test extends Base_test
 
   public function test_failed_database_op()
   {
-    $delete_user = get_delete_user_usecase();
+    $delete_user = make_delete_user_usecase();
     $test_presenter = $this->mock_presenter();
     $test_delete_user = $this->mock_failed_delete_user();
 
