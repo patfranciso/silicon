@@ -56,14 +56,8 @@ class Create_group_test extends Base_test
   private function mock_presenter(){
     return function($result){
       return $result->match([
-        'left'=>function($xx){ 
-          $x = $xx->extract();
-          $dict = [
-            'check_active_group_is_admin' => function(){ return 'check_active_group_is_admin';},
-            'validate_new_group' => function(){ return 'validate_new_group';},
-            'create_group' => function(){ return 'create_group';}
-          ];
-          return $dict[$x]();
+        'left'=>function($x){ 
+          return $x->extract();
         },
         'right'=>function($x){ return 'success';},
       ]);

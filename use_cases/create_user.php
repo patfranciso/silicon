@@ -107,23 +107,6 @@ function make_create_user_usecase(){
     ->setValidateNewUser('validate_new_user')
     ->setCreateUser('create_user');
 
-  // $cli_presenter = function($result){
-  //   $result->match([
-  //     'left'=>function($xx){ 
-  //       $x = $xx->extract();
-  //       $dict = [
-  //         'check_active_user_is_admin' => function(){ printErr('202');},
-  //         'validate_new_user' => function(){ printErr('412');},
-  //         'create_user' => function(){ printErr('400');}
-  //       ];
-  //       return $dict[$x]();
-  //     },
-  //     'right'=>function($x){ printSuccess('Success'.$x);},
-  //   ]);
-  // };
-
-  // $create_user->setPresenter($cli_presenter);
-
   $presenter = function($result){
     $result->match([
       'left'=>function($xx){ 

@@ -56,14 +56,8 @@ class Create_user_test extends Base_test
   private function mock_presenter(){
     return function($result){
       return $result->match([
-        'left'=>function($xx){ 
-          $x = $xx->extract();
-          $dict = [
-            'check_active_user_is_admin' => function(){ return  'check_active_user_is_admin';},
-            'validate_new_user' => function(){ return 'validate_new_user';},
-            'create_user' => function(){ return 'create_user';}
-          ];
-          return $dict[$x]();
+        'left'=>function($x){ 
+          return $x->extract();
         },
         'right'=>function($x){ return 'success';},
       ]);

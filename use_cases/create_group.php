@@ -55,7 +55,7 @@ class Create_group_usecase
 
   public function execute($request)
   {
-    $result = identity($request)
+    $result = right($request)
     ->bind($this->check_active_user_is_admin)
     ->bind($this->validate_new_group)
     ->bind($this->check_name_is_unique)
