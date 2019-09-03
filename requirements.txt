@@ -1,0 +1,63 @@
+Every Use Case is elaborated as a procedure with steps of execution.
+
+From given Stories:
+
+• As an admin   
+  this implies that a user must be an admin
+  Note: this procedure is not a use case
+  Procedure =>check active user is admin
+    - check that the session's active user type is admin
+
+
+• As an admin I can add users — a user has a name.
+  Request
+    name
+  Procedure => add users
+    - make sure active user is admin
+    - validate name :: 2 to 16 letter word
+    - add record to database
+    - retrieve record
+
+• As an admin I can delete users.
+  Request
+    user id
+  Procedure => delete user
+    - make sure active user is admin
+    - remove user record
+
+• As an admin I can assign users to a group they aren’t already part of.
+  Request
+    user id
+    group id
+  Procedure
+    - make sure active user is admin
+    - check user is not already in group
+    - save entry database
+    - return success message
+
+• As an admin I can remove users from a group.
+  Request
+    user id
+    group id
+  Procedure
+    - make sure active user is admin
+    - check user is in group
+    - remove user
+    - return message
+
+• As an admin I can create groups.
+  Request
+    name
+  Procedure
+    - make sure active user is admin
+    - validate name :: 2 to 16 letters
+    - check name is unique
+    - add record to database
+    - return id | record
+
+• As an admin I can delete groups when they no longer have members.
+  Request
+    group id
+  Procedure
+    - make sure active user is admin
+    - remove group record
