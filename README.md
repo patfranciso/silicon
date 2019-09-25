@@ -5,7 +5,7 @@
 A Simple User management system.
 
 ## Goal:
-Design a convenient API that other developers would love to use for the tasks above. A challenge/test following
+Design a convenient API that other developers would love to use for the tasks above. 
 
 ## Front end
  Vue.js, axios, jquery and bootstrap 3 
@@ -19,7 +19,7 @@ Design a convenient API that other developers would love to use for the tasks ab
 - As an admin I can delete groups when they no longer have members.
 
 MVC frameworks are powerful but they do not quite help to manage well when business rules are changing (as they often have to). 
-This repo shows a rough example Functional Programming style ideas in PHP with Either Monads (Railway Oriented Programming) to capture business rules directly in your code. 
+This repo shows a rough example **Functional Programming** style ideas in PHP with **Either Monads (Railway Oriented Programming)** to capture business rules directly in your code. 
 
 ## Setup
   host : http://silicon.test [from your local virtual host]
@@ -34,6 +34,7 @@ This repo shows a rough example Functional Programming style ideas in PHP with E
 -   **Mocha and Chai** js sample: *in browser* at http://silicon.test/assets/js/tests/index.html where I demo how I would test a function for an API call that uses a Promise
 
 ## Adding a new feature
+To add a new feature all you have to do is:
   - create a module in the 'use_case' folder where you:
   - define the use case procedure as steps of checks and handles.
   - create procedure steps as functions (or callable object methods) so that the overall user case takes a Request and returns a Response.
